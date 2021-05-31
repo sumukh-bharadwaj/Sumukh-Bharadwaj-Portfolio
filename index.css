@@ -77,6 +77,30 @@
     text-shadow: 1px 1px black;
     padding-top: 10px;
   }
+  @media screen and (min-width: 601px) {
+    div.tagline2{
+      font-size: 80px;
+    }
+  }
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    div.tagline2 {
+      font-size: 35px;
+    }
+  }
+  @media screen and (min-width: 601px) {
+    div.tagline1{
+      font-size: 2em;
+    }
+  }
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    div.tagline1 {
+      font-size: 20px;
+    }
+  }
   
   
   
@@ -124,7 +148,7 @@ header::after {
     margin-left: 10px;
     margin-right: 10px;
   }
-  
+
  .Home a{
   color: rgb(250, 246, 246);
   font: bold 14px/1.4 'Open Sans', arial, sans-serif;
@@ -169,6 +193,19 @@ a:focus {
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
+@media screen and (min-width: 601px) {
+  div.Home h1{
+    font-size: 80px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  div.Home h1 {
+    font-size: 30px;
+  }
+}
+
 .Home h3{
     color:#fff;
 }
@@ -186,9 +223,9 @@ a:focus {
 }
 
 .Home .bb8 {
-  position: absolute;
+  position:absolute;
   margin-left: 0px;
-  width: 140px;
+  max-width: 1000;
   bottom: 20%;
   left: 0;
 }
@@ -413,21 +450,66 @@ a:focus {
 }
 
 #about-page {
+  margin-left: 10%;
   padding-top: 2%;
   background: url('');
   background-size: cover;
-  text-align: justify;
+  text-align: left;
 }
-
 #about-page h1 {
+   
+  /* font-family: 'Lato', sans-serif; */
+  margin-left: 10%;
   font-size: 3em;
-  font-weight: bold;
-  font-family: 'Lobster', 'Roboto', serif;
+  font-weight: 300;
+  font-style: italic;
+  text-align: left;
+  /* padding-top: 100px; */
+  text-shadow: 1px 1px black;
+ font-family: 'Lobster', 'Roboto', serif;
+}
+/* @media screen and (min-width: 601px) {
+  div#about-page h1{
+    font-size: 80px;
+  }
+} */
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  div#about-page h1{
+    font-size: 35px;
+  }
 }
 #about-page h3 {
+   
+    /* font-family: 'Lato', sans-serif; */
+    /* margin-left: 10%; */
+    font-size: 2em;
+    font-weight: 300;
+    /* font-style: italic; */
+    text-align: left;
+    /* padding-top: 100px; */
+    /* text-shadow: 1px 1px black; */
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+   /* font-family: 'Lobster', 'Roboto', serif; */
+}
+/* #about-page h3 {
   text-align:justify;
   font-weight: bold;
   
+} */
+@media screen and (min-width: 601px) {
+  div#about-page h3{
+
+    font-size: 35px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  div#about-page h3{
+    font-size: 25px;
+  }
 }
 
 #about-page .row {
@@ -452,16 +534,30 @@ a:focus {
     font-family: 'Lobster', 'Roboto', serif;
 }
 .skills {
-  display: grid; height: 100vh;
+  display: grid; 
+  /* height: 100vh; */
+  
   place-items: center;
   background: #000000;
 }
 .skills .skill-bars{
+   /* grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); */
     padding: 25px 30px;
-    width: 600px; background: rgb(0, 0, 0);
+    background: rgb(0, 0, 0);
     box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
     border-radius: 10px;
   }
+  @media screen and (max-width: 600px) {
+    .skills .skill-bars {
+      width:300px;
+    }
+  }
+  @media screen and (min-width: 603px) {
+    .skills .skill-bars {
+      width:600px;
+    }
+  }
+    
   .skills .bar{
     margin: 20px 0;
   }
@@ -574,12 +670,12 @@ body {
     
 } */
 .wrapper {
-  display: grid; height: 100vh;
+  display: grid; max-height: 5000px;
 
   margin: auto;
   max-width: 1000px;
   background-color: rgb(255, 255, 255);
-  /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.06); */
+  /* box-shadow: 0 0 5px 0 rgba(0,  0, 0, 0.06); */
 }
 #Projects{
   background: rgb(255, 255, 255);
@@ -606,6 +702,7 @@ body {
   font-weight: 500;
   line-height: 1.1;
 }
+
 .header__subtitle {
   margin: 0;
   font-size: 1.5em;
@@ -767,45 +864,45 @@ body {
 
 
 .toggle-icon {
-	display: block;
-	position: relative;
-	width: 100%;
-	margin: -2.2em auto 0 0.2em;
-	-webkit-transition: margin 600ms;
-	-moz-transition: margin 600ms;
-	transition: margin 600ms;
-	cursor: pointer;
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: -2.2em auto 0 0.2em;
+  -webkit-transition: margin 600ms;
+  -moz-transition: margin 600ms;
+  transition: margin 600ms;
+  cursor: pointer;
 }
 
 .toggle-icon .bar {
-	display: block;
-	width: 3.8em;
-	height: 0.2em;
-	margin: 0.9em;
-	border-right: 2.8em solid #fff;
-	border-left: 0.6em solid #d6d6d6;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-transition-property: -webkit-transform, margin, border-right-color, box-shadow;
-	-moz-transition-property: -moz-transform, margin, border-right-color, box-shadow;
-	transition-property: transform, margin, border-right-color, box-shadow;
-	-webkit-transition-duration: 600ms;
-	-moz-transition-duration: 600ms;
-	transition-duration: 600ms;
+  display: block;
+  width: 3.8em;
+  height: 0.2em;
+  margin: 0.9em;
+  border-right: 2.8em solid #fff;
+  border-left: 0.6em solid #d6d6d6;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition-property: -webkit-transform, margin, border-right-color, box-shadow;
+  -moz-transition-property: -moz-transform, margin, border-right-color, box-shadow;
+  transition-property: transform, margin, border-right-color, box-shadow;
+  -webkit-transition-duration: 600ms;
+  -moz-transition-duration: 600ms;
+  transition-duration: 600ms;
 }
-	.toggle-icon .bar:nth-of-type(1) {
-		-webkit-transition: opacity 300ms;
-		-moz-transition: opacity 300ms;
-		transition: opacity 300ms;
-	}
-	.toggle-icon .bar:nth-of-type(2) {
-		-webkit-transform: rotate(-180deg);
-		-moz-transform: rotate(-180deg);
-		-ms-transform: rotate(-180deg);
-		-o-transform: rotate(-180deg);
-		transform: rotate(-180deg);
-	}
+  .toggle-icon .bar:nth-of-type(1) {
+    -webkit-transition: opacity 300ms;
+    -moz-transition: opacity 300ms;
+    transition: opacity 300ms;
+  }
+  .toggle-icon .bar:nth-of-type(2) {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+  }
 
 /*pushed*/
 
@@ -823,7 +920,7 @@ body {
   min-height: 100%;
 
 }
-.video .overlay {
+.video  {
   position: absolute;
   top: 0;
   left: 0;
@@ -832,18 +929,18 @@ body {
   color: rgb(19, 18, 18);
   padding-top: 80px;
 }
-.video .overlay h2 {
+.video  h2 {
 text-transform: uppercase;
 font-size: 35px
 }
-.video .overlay p {
+.video  p {
   color: #080808 !important;
 }
-.video .overlay .social {
+.video  .social {
   margin-top: 40px;
   
 }
-.video .overlay .social i {
+.video  .social i {
   color:rgb(0, 0, 0);
   width: 55px;
   height: 55px;
@@ -854,10 +951,10 @@ font-size: 35px
   transition: .5s ease;
   margin-right: 5px;
 }
-.video .overlay .social i:last-child {
+.video  .social i:last-child {
   margin-right: 0;
 }
-.video .overlay .social i:hover {
+.video  .social i:hover {
   border-color: #be6662;
   cursor: pointer;
   box-shadow: 0 0 20px #be6662;
