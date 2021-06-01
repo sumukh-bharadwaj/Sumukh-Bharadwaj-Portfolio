@@ -49,8 +49,11 @@
   background:#000;
   overflow: hidden;
 } 
+.Home{
+  max-width: inherit;
+}
 .Home .container {
-    width: 80%;
+    width: 10%;
     margin: 0 ;
   }
   .tagline1 {
@@ -86,7 +89,7 @@
   /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
   @media screen and (max-width: 600px) {
     div.tagline2 {
-      font-size: 35px;
+      font-size: 25px;
     }
   }
   @media screen and (min-width: 601px) {
@@ -209,8 +212,15 @@ a:focus {
 .Home h3{
     color:#fff;
 }
-
-.Home .sand {
+/* }
+.bot
+ {
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+} */
+.bot .sand {
   /* background: #B69C77; */
   background: #be6662;
   height: 30%;
@@ -222,34 +232,55 @@ a:focus {
   left: 0;
 }
 
-.Home .bb8 {
+.bot .bb8 {
   position:absolute;
-  margin-left: 0px;
-  max-width: 1000;
+  /* margin-left: 100px; */
+  /* margin-right: 100px; */
+  max-width:100%; 
   bottom: 20%;
-  left: 0;
+  /* left: 0; */
+  /* width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px; */
+}
+@media screen and (max-width: 600px) {
+  .bb8 {
+    max-width:600px;
+  }
+}
+@media screen and (max-width: 997px) {
+  .bb8 {
+    max-width:997px;
+  }
 }
 
-.Home .antennas {
+/* @media screen and (max-width: 600px) {
+  body {
+      margin-right: 0px;
+  }
+} */
+
+.bot .antennas {
   position: absolute;
   transition: left 0.6s;
   left: 22%;
 }
-.Home .antennas.right {
+.bot .antennas.right {
   left: 0%;
 }
 
-.Home .antenna {
+.bot .antenna {
   background: #f5d5bb;
   position: absolute;
   width: 2px;
 }
-.Home .antenna.short {
+.bot .antenna.short {
   height: 20px;
   top: -60px;
   left: 50px;
 }
-.Home .antenna.long {
+.bot .antenna.long {
   border-top: 6px solid #020204;
   border-bottom: 6px solid #020204;
   height: 36px;
@@ -257,7 +288,7 @@ a:focus {
   left: 56px;
 }
 
-.Home .head {
+.bot .head {
   background: #e0d2be;
   border-radius: 90px 90px 14px 14px;
   -moz-border-radius: 90px 90px 14px 14px;
@@ -270,30 +301,31 @@ a:focus {
   z-index: 1;
   top: -46px;
   left: 50%;
+  
 }
-.Home .head .stripe {
+.bot .head .stripe {
   position: absolute;
   width: 100%;
 }
-.Home .head .stripe.one {
+.bot .head .stripe.one {
   background: #ee640f;
   height: 6px;
   opacity: 0.8;
   z-index: 1;
   top: 6px;
 }
-.Home .head .stripe.two {
+.bot .head .stripe.two {
   background: #ee640f;
   height: 4px;
   top: 17px;
 }
-.Home .head .stripe.three {
+.bot .head .stripe.three {
   background: #999;
   height: 4px;
   opacity: 0.5;
   bottom: 3px;
 }
-.Home .head .eyes {
+.bot .head .eyes {
   display: block;
   height: 100%;
   position: absolute;
@@ -301,15 +333,15 @@ a:focus {
   transition: left 0.6s;
   left: 0%;
 }
-.Home .head .eyes.right {
+.bot .head .eyes.right {
   left: 36%;
 }
-.Home .head .eye {
+.bot .head .eye {
   border-radius: 50%;
   display: block;
   position: absolute;
 }
-.Home .head .eye.one {
+.bot .head .eye.one {
   background: #020204;
   border: 4px solid #e0d2be;
   height: 50%;
@@ -317,7 +349,7 @@ a:focus {
   top: 12px;
   left: 12%;
 }
-.Home .head .eye.one:after {
+.bot .head .eye.one:after {
   background: white;
   border-radius: 50%;
   content: "";
@@ -328,7 +360,7 @@ a:focus {
   top: 4px;
   right: 4px;
 }
-.Home .head .eye.two {
+.bot .head .eye.two {
   background: #e0d2be;
   border: 1px solid #020204;
   height: 14px;
@@ -336,7 +368,7 @@ a:focus {
   top: 30px;
   left: 40%;
 }
-.Home .head .eye.two:after {
+.bot .head .eye.two:after {
   background: #020204;
   border-radius: 60%;
   content: "";
@@ -348,7 +380,7 @@ a:focus {
   left: 2px;
 }
 
-.Home .ball {
+.bot .ball {
   background: #d1c3ad;
   border-radius: 50%;
   height: 140px;
@@ -357,7 +389,7 @@ a:focus {
   width: 140px;
 }
 
-.Home .lines {
+.bot .lines {
   border: 2px solid #B19669;
   border-radius: 50%;
   height: 400px;
@@ -365,12 +397,12 @@ a:focus {
   position: absolute;
   width: 400px;
 }
-.Home .lines.two {
+.bot .lines.two {
   top: -10px;
   left: -250px;
 }
 
-.Home .ring {
+.bot .ring {
   background: #e66312;
   border-radius: 50%;
   height: 70px;
@@ -378,7 +410,7 @@ a:focus {
   position: absolute;
   width: 70px;
 }
-.Home .ring:after {
+.bot .ring:after {
   background: #d1c3ad;
   border-radius: 50%;
   content: "";
@@ -391,14 +423,14 @@ a:focus {
   top: 50%;
   left: 50%;
 }
-.Home .ring.one {
+.bot .ring.one {
   margin-left: -40px;
   height: 80px;
   width: 90px;
   top: 6%;
   left: 50%;
 }
-.Home .ring.two {
+.bot .ring.two {
   height: 38px;
   width: 76px;
   -ms-transform: rotate(36deg);
@@ -407,10 +439,10 @@ a:focus {
   top: 70%;
   left: 18%;
 }
-.Home .ring.two:after {
+.bot .ring.two:after {
   top: 100%;
 }
-.Home .ring.three {
+.bot .ring.three {
   height: 30px;
   -ms-transform: rotate(-50deg);
   -webkit-transform: rotate(-50deg);
@@ -418,11 +450,11 @@ a:focus {
   top: 66%;
   left: 90%;
 }
-.Home .ring.three:after {
+.bot .ring.three:after {
   top: 110%;
 }
 
-.Home .shadow {
+.bot .shadow {
   background: #3A271C;
   border-radius: 50%;
   height: 23.3333333333px;
@@ -434,7 +466,7 @@ a:focus {
   bottom: -8px;
 }
 
-.Home .shameless {
+.bot .shameless {
   position: absolute;
   bottom: 10px;
   right: 10px;
