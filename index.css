@@ -236,7 +236,7 @@ a:focus {
   position:absolute;
   /* margin-left: 100px; */
   /* margin-right: 100px; */
-  max-width:100%; 
+   max-width: 100%;
   bottom: 20%;
   /* left: 0; */
   /* width: 300px;
@@ -244,16 +244,16 @@ a:focus {
   padding: 50px;
   margin: 20px; */
 }
-@media screen and (max-width: 600px) {
-  .bb8 {
+/* @media screen and (max-width: 600px) {
+  .bot .bb8 {
     max-width:600px;
   }
 }
 @media screen and (max-width: 997px) {
-  .bb8 {
+  .bot .bb8 {
     max-width:997px;
   }
-}
+} */
 
 /* @media screen and (max-width: 600px) {
   body {

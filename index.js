@@ -1,5 +1,5 @@
 var $w = $( window ).width();
-var $dW = $('.bb8').css('width');
+var $dW = $('.bb8').css('max-width');
 $dW = $dW.replace('px', '');
 $dW = parseInt($dW);
 var $dPos = 0;
