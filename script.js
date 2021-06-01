@@ -1,141 +1,103 @@
-// I've seen a few of these BB-8 animations about, so I thought I'd take a shot at building one using React as a bit of an exercise. My favorite thing to do is draw circles around him to make him do a little jig, but I'm easily amused.
+/* Please ❤ this if you like it! */
 
-class App2 extends React.Component {
-    constructor(props) {
-      super(props);
-  
-      this.state = {
-        droidX: 0,
-        mouseX: 0,
-        toTheRight: true,
-        speed: 2,
-        accelMod: 1 };
-  
+
+(function($) { "use strict";
+    
+  //Page cursors
+
+    document.getElementsByTagName("body")[0].addEventListener("mousemove", function(n) {
+        t.style.left = n.clientX + "px", 
+    t.style.top = n.clientY + "px", 
+    e.style.left = n.clientX + "px", 
+    e.style.top = n.clientY + "px", 
+    i.style.left = n.clientX + "px", 
+    i.style.top = n.clientY + "px"
+    });
+    var t = document.getElementById("cursor"),
+        e = document.getElementById("cursor2"),
+        i = document.getElementById("cursor3");
+    function n(t) {
+        e.classList.add("hover"), i.classList.add("hover")
+    }
+    function s(t) {
+        e.classList.remove("hover"), i.classList.remove("hover")
+    }
+    s();
+    for (var r = document.querySelectorAll(".hover-target"), a = r.length - 1; a >= 0; a--) {
+        o(r[a])
+    }
+    function o(t) {
+        t.addEventListener("mouseover", n), t.addEventListener("mouseout", s)
     }
   
-    // Keep track of the mouse position.
-    handleMouseMove(event) {
-      this.setState({
-        mouseX: event.pageX });
+  //Navigation
+
+  var app = function () {
+    var body = undefined;
+    var menu = undefined;
+    var menuItems = undefined;
+    var init = function init() {
+      body = document.querySelector('body');
+      menu = document.querySelector('.menu-icon');
+      menuItems = document.querySelectorAll('.nav__list-item');
+      applyListeners();
+    };
+    var applyListeners = function applyListeners() {
+      menu.addEventListener('click', function () {
+        return toggleClass(body, 'nav-active');
+      });
+    };
+    var toggleClass = function toggleClass(element, stringClass) {
+      if (element.classList.contains(stringClass)) element.classList.remove(stringClass);else element.classList.add(stringClass);
+    };
+    init();
+  }();
+
   
+  //Switch light/dark
+  
+  $("#switch").on('click', function () {
+    if ($("body").hasClass("light")) {
+      $("body").removeClass("light");
+      $("#switch").removeClass("switched");
     }
-  
-    // Speed Mod Bar
-    handleSpeedChange(e) {
-      if (parseFloat(e.target.value)) {
-        this.setState({
-          speed: e.target.value });
-  
-      }
+    else {
+      $("body").addClass("light");
+      $("#switch").addClass("switched");
     }
-  
-    // Acceleration Mod Bar
-    handleAccelChange(e) {
-      if (parseFloat(e.target.value)) {
-        this.setState({
-          accelMod: e.target.value });
-  
-      }
+  });          
+              
+})(jQuery);
+
+var $cell = $('.card');
+
+//open and close card when clicked on card
+$cell.find('.js-expander').click(function() {
+
+  var $thisCell = $(this).closest('.card');
+
+  if ($thisCell.hasClass('is-collapsed')) {
+    $cell.not($thisCell).removeClass('is-expanded').addClass('is-collapsed').addClass('is-inactive');
+    $thisCell.removeClass('is-collapsed').addClass('is-expanded');
+    
+    if ($cell.not($thisCell).hasClass('is-inactive')) {
+      //do nothing
+    } else {
+      $cell.not($thisCell).addClass('is-inactive');
     }
-  
-    // Get moving!
-    movement() {
-      let { droidX, mouseX, speed, accelMod } = this.state;
-  
-      // Need a pretty strict if statement to make sure React doesn't end up in a 
-      // render loop with all the state changes / re-rendering going on.
-      if (Math.abs(Math.round(droidX) - mouseX) !== 1) {
-  
-        let distance = mouseX - droidX;
-        let acceleration = Math.abs(distance * accelMod) / 100;
-  
-        // Move to the right
-        if (droidX < mouseX) {
-          this.setState({
-            droidX: droidX + speed * acceleration,
-            toTheRight: true });
-  
-        }
-  
-        // Move to the left
-        else {
-            this.setState({
-              droidX: droidX - speed * acceleration,
-              toTheRight: false });
-  
-          }
-      }
-    }
-  
-    // Get some initial movement on first mount. 
-    componentWillMount() {
-      this.setState({
-        mouseX: 300 });
-  
-    }
-  
-    // Set up the mouse event listener and fire up the movement function.
-    componentDidMount() {
-      document.addEventListener('mousemove', e => this.handleMouseMove(e));
-      setInterval(this.movement.bind(this), 1);
-    }
-  
-    // Clean up.
-    componentWillUnmount() {
-      document.removeEventListener('mousemove', e => this.handleMouseMove(e));
-    }
-  
-    // Away we go.
-    render() {
-      let { speed, accelMod, droidX, mouseX, toTheRight } = this.state;
-  
-      return /*#__PURE__*/(
-  
-        React.createElement("div", null, /*#__PURE__*/
-        React.createElement("div", { className: "bb8", style: { WebkitTransform: `translateX(${droidX}px)` } }, /*#__PURE__*/
-        React.createElement("div", { className: 'antennas ' + (toTheRight ? 'right' : ''),
-          style: { WebkitTransform: `translateX(${(mouseX - droidX) / 25}px) rotateZ(${(mouseX - droidX) / 80}deg)` } }, /*#__PURE__*/
-        React.createElement("div", { className: "antenna short" }), /*#__PURE__*/
-        React.createElement("div", { className: "antenna long" })), /*#__PURE__*/
-  
-        React.createElement("div", { className: "head",
-          style: { WebkitTransform: `translateX(${(mouseX - droidX) / 15}px) rotateZ(${(mouseX - droidX) / 25}deg)` } }, /*#__PURE__*/
-        React.createElement("div", { className: "stripe one" }), /*#__PURE__*/
-        React.createElement("div", { className: "stripe two" }), /*#__PURE__*/
-        React.createElement("div", { className: 'eyes ' + (toTheRight ? 'right' : '') }, /*#__PURE__*/
-        React.createElement("div", { className: "eye one" }), /*#__PURE__*/
-        React.createElement("div", { className: "eye two" })), /*#__PURE__*/
-  
-        React.createElement("div", { className: 'stripe detail ' + (toTheRight ? 'right' : '') }, /*#__PURE__*/
-        React.createElement("div", { className: "detail zero" }), /*#__PURE__*/
-        React.createElement("div", { className: "detail zero" }), /*#__PURE__*/
-        React.createElement("div", { className: "detail one" }), /*#__PURE__*/
-        React.createElement("div", { className: "detail two" }), /*#__PURE__*/
-        React.createElement("div", { className: "detail three" }), /*#__PURE__*/
-        React.createElement("div", { className: "detail four" }), /*#__PURE__*/
-        React.createElement("div", { className: "detail five" }), /*#__PURE__*/
-        React.createElement("div", { className: "detail five" })), /*#__PURE__*/
-  
-        React.createElement("div", { className: "stripe three" })), /*#__PURE__*/
-  
-        React.createElement("div", { className: "ball", style: { WebkitTransform: `rotateZ(${droidX / 2}deg)` } }, /*#__PURE__*/
-        React.createElement("div", { className: "lines one" }), /*#__PURE__*/
-        React.createElement("div", { className: "lines two" }), /*#__PURE__*/
-        React.createElement("div", { className: "ring one" }), /*#__PURE__*/
-        React.createElement("div", { className: "ring two" }), /*#__PURE__*/
-        React.createElement("div", { className: "ring three" })), /*#__PURE__*/
-  
-        React.createElement("div", { className: "shadow" })), /*#__PURE__*/
-  
-  
-        React.createElement("div", { className: "instructions" }, /*#__PURE__*/
-        React.createElement("p", null, "move your mouse."))));
-  
-  
-  
-  
-  
-    }}
-  
-  
-  React.render( /*#__PURE__*/React.createElement(App2, null), document.getElementById('app'));
+
+  } else {
+    $thisCell.removeClass('is-expanded').addClass('is-collapsed');
+    $cell.not($thisCell).removeClass('is-inactive');
+  }
+});
+
+//close card when click on cross
+$cell.find('.js-collapser').click(function() {
+
+  var $thisCell = $(this).closest('.card');
+
+  $thisCell.removeClass('is-expanded').addClass('is-collapsed');
+  $cell.not($thisCell).removeClass('is-inactive');
+
+});
