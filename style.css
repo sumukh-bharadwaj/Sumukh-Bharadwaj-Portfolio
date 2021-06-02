@@ -794,10 +794,9 @@ img {
 	  color:#fff;
 	  margin-bottom: 5px;
 	}
-	body.light .switch-wrap .info{
-		color:rgb(0, 0, 0);
-		margin-bottom: 5px;
-	  }
+	body.light .info{
+		color:#000;
+	}
 	.info span{
 	  font-weight: 500;
 	  font-size: 17px; opacity: 0;
